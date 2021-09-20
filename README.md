@@ -27,6 +27,6 @@ setup your accounts via 'eth.txt'.
   
     $ python3 main.py  
     
-that's all.
+that's all.  
 ![image](https://user-images.githubusercontent.com/41644451/134017938-faec6124-a586-420b-9034-56e00265043d.png)
 
