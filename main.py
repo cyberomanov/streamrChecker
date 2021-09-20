@@ -20,35 +20,34 @@ addresses = [x.strip() for x in addresses]
 for address in addresses:
 
     # генерируем сессию
+    try:
+        url = f"https://testnet1.streamr.network:3013/stats/{address}"
+        session = requests.Session()
 
-    session = requests.Session()
-    headers = {
-        'user-agent': fake_useragent.UserAgent().random
-    }
+        # отправляем запрос
 
-    url = f"https://testnet1.streamr.network:3013/stats/{address}"
+        try:
+            headers = {
+                'user-agent': fake_useragent.UserAgent().random
+            }
+            request = session.get(url=url, headers=headers)
+        except:
+            request = session.get(url=url)
 
-    # отправляем запрос
+        # разбираем ответ
 
-    request = session.get(url=url, headers=headers)
+        soup = BeautifulSoup(request.text, 'lxml')
+        claimPercentage = soup.string
 
-    # разбираем ответ
+        claimCount = re.findall(r'\d+', claimPercentage)
 
-    soup = BeautifulSoup(request.text, 'lxml')
-    claimPercentage = soup.string
+        # выводим результат
 
-    claimCount = re.findall(r'\d+', claimPercentage)
-
-    # выводим результат
-
-    if (len(claimCount) == 3):
         percentage = f"{claimCount[2][:2]}"
         sumPercentage = sumPercentage + int(percentage)
         sumClaim = sumClaim + int(claimCount[0])
-
         print(f'{address}: {claimCount[0]} rewards, claimed: {percentage}%')
-    else:
-
+    except:
         print(f"{address}: no rewards.")
 
 print(f"\ntotal rewards: {str(sumClaim)} | average rewards: {str(int(round(sumClaim/len(addresses))))} | average percentage: {str(int(round(sumPercentage/len(addresses))))}")
