@@ -52,8 +52,12 @@ for address in addresses:
         print(f'{address}: {claimCount[0]} rewards, claimed: {int(percentage)}%')
     except:
         print(f"{address}: no rewards.")
+        
 print(f"\n/////////////////////////////////////////////////////////////////////")
+
 print(f"\n{str(confirmed)}/{str(len(addresses))} node(s) have rewards.")
+
 print(f"total rewards: {str(sumClaim)} | average rewards: {str(int(round(sumClaim/confirmed)))} "
       f"| average percentage: {str(round(sumPercentage/confirmed))}")
+
 print("\nwith love by @cyberomanov.")
