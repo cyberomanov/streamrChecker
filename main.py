@@ -7,6 +7,7 @@ import fake_useragent
 
 sumClaim = 0
 sumPercentage = 0
+confirmed = 0
 
 # читаем файл с адресами в список
 
@@ -46,10 +47,13 @@ for address in addresses:
         percentage = f"{claimCount[2][:2]}"
         sumPercentage = sumPercentage + int(percentage)
         sumClaim = sumClaim + int(claimCount[0])
+        confirmed = confirmed + 1
+        
         print(f'{address}: {claimCount[0]} rewards, claimed: {percentage}%')
     except:
         print(f"{address}: no rewards.")
 
 print(f"\ntotal rewards: {str(sumClaim)} | average rewards: {str(int(round(sumClaim/len(addresses))))} "
-      f"| average percentage: {str(int(round(sumPercentage/len(addresses))))}")
+      f"| average percentage: {str(int(round(sumPercentage/confirmed)))}")
+
 print("\nwith love by @cyberomanov.")
