@@ -1,9 +1,9 @@
 streamrChecker via python by @cyberomanov.
 
-how_to_use:
-
-**windows**
-
+how_to_use:  
+  
+**WINDOWS**  
+  
 1. install [python v3.9.1](https://www.python.org/downloads/) on server or local machine.
 2. via cmd navigate to '**streamr**' folder.
 3. run '**pip3 install -r requirements.txt**' to install requirements.  
@@ -15,9 +15,9 @@ how_to_use:
 5. run '**py -3 main.py**' to start the bot.  
 
 ![image](https://user-images.githubusercontent.com/41644451/134015825-9667bcec-94e4-4058-bb69-b822d8794242.png)  
-
-**linux**
-
+  
+**LINUX**  
+  
 1. $ wget https://github.com/cyberomanov/streamrChecker/archive/refs/heads/main.zip && unzip $HOME/main.zip  
 2. $ rm -vf main.zip && cd streamrChecker-main  
 3. $ sudo apt-get install python3.9 python3-pip -y && pip3 install -r requirements.txt  
