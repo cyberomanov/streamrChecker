@@ -2,7 +2,7 @@
 
 how_to_use:  
   
-##WINDOWS
+### WINDOWS
   
 1. install [python v3.9.1](https://www.python.org/downloads/) on server or local machine.
 2. via cmd navigate to '**streamr**' folder.
@@ -16,7 +16,7 @@ how_to_use:
 
 ![image](https://user-images.githubusercontent.com/41644451/134015825-9667bcec-94e4-4058-bb69-b822d8794242.png)  
   
-## LINUX 
+### LINUX 
   
 1. $ wget https://github.com/cyberomanov/streamrChecker/archive/refs/heads/main.zip && unzip $HOME/main.zip  
 2. $ rm -vf main.zip && cd streamrChecker-main  
