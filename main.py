@@ -44,16 +44,16 @@ for address in addresses:
 
         # выводим результат
 
-        percentage = f"{claimCount[2][:2]}"
-        sumPercentage = sumPercentage + int(percentage)
+        percentage = float(f"0.{claimCount[2][:2]}") * 100
+        sumPercentage = sumPercentage + percentage
         sumClaim = sumClaim + int(claimCount[0])
         confirmed = confirmed + 1
 
-        print(f'{address}: {claimCount[0]} rewards, claimed: {percentage}%')
+        print(f'{address}: {claimCount[0]} rewards, claimed: {int(percentage)}%')
     except:
         print(f"{address}: no rewards.")
 print(f"\n/////////////////////////////////////////////////////////////////////")
 print(f"\n{str(confirmed)}/{str(len(addresses))} node(s) have rewards.")
 print(f"total rewards: {str(sumClaim)} | average rewards: {str(int(round(sumClaim/confirmed)))} "
-      f"| average percentage: {str(int(round(sumPercentage/confirmed)))}")
+      f"| average percentage: {str(round(sumPercentage/confirmed))}")
 print("\nwith love by @cyberomanov.")
