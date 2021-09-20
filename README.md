@@ -18,11 +18,11 @@ how_to_use:
   
 ### LINUX 
   
-1. $ wget https://github.com/cyberomanov/streamrChecker/archive/refs/heads/main.zip && unzip $HOME/main.zip  
-2. $ rm -vf main.zip && cd streamrChecker-main  
-3. $ sudo apt-get install python3.9 python3-pip -y && pip3 install -r requirements.txt  
+    $ wget https://github.com/cyberomanov/streamrChecker/archive/refs/heads/main.zip && unzip $HOME/main.zip  
+    $ rm -vf main.zip && cd streamrChecker-main  
+    $ sudo apt-get install python3.9 python3-pip -y && pip3 install -r requirements.txt  
 4. setup your accounts via 'eth.txt'.  
 ![image](https://user-images.githubusercontent.com/41644451/134017847-76f26439-8136-4f80-bc54-4980a0392d4a.png)  
-5. $ python3 main.py # to start the bot.  
+    $ python3 main.py # to start the bot.  
 ![image](https://user-images.githubusercontent.com/41644451/134017938-faec6124-a586-420b-9034-56e00265043d.png)
 
