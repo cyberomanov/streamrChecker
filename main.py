@@ -50,5 +50,6 @@ for address in addresses:
     except:
         print(f"{address}: no rewards.")
 
-print(f"\ntotal rewards: {str(sumClaim)} | average rewards: {str(int(round(sumClaim/len(addresses))))} | average percentage: {str(int(round(sumPercentage/len(addresses))))}")
+print(f"\ntotal rewards: {str(sumClaim)} | average rewards: {str(int(round(sumClaim/len(addresses))))} "
+      f"| average percentage: {str(int(round(sumPercentage/len(addresses))))}")
 print("\nwith love by @cyberomanov.")
