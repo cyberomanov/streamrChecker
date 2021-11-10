@@ -1,11 +1,9 @@
-import re
 import requests
 
-from bs4 import BeautifulSoup
 import fake_useragent
 
 
-sumClaim = 0
+sumRew = 0
 sumPercentage = 0
 confirmed = 0
 
@@ -37,27 +35,21 @@ for address in addresses:
 
         # разбираем ответ
 
-        soup = BeautifulSoup(request.text, 'lxml')
-        claimPercentage = soup.string
+        response = request.json()
+        claimCount = response['claimCount']
+        claimPercentage = round(float(response['claimPercentage']), 2)
+        totalEarningsInData = round(float(response['totalEarningsInData']), 2)
 
-        claimCount = re.findall(r'\d+', claimPercentage)
-
-        # выводим результат
-
-        percentage = float(f"0.{claimCount[2][:2]}") * 100
-        sumPercentage = sumPercentage + percentage
-        sumClaim = sumClaim + int(claimCount[0])
+        sumPercentage = sumPercentage + claimPercentage
+        sumRew = sumRew + totalEarningsInData
         confirmed = confirmed + 1
 
-        print(f'{address}: {claimCount[0]} rewards, claimed: {int(percentage)}%')
+        print(f'{address} > claimed: {claimCount}, percentage: {claimPercentage}, reward: {totalEarningsInData} DATA.')
     except:
-        print(f"{address}: no rewards.")
-        
+        print(f"{address} > no rewards.")
+
 print(f"\n/////////////////////////////////////////////////////////////////////")
 
-print(f"\n{str(confirmed)}/{str(len(addresses))} node(s) have rewards.")
-
-print(f"total rewards: {str(sumClaim)} | average rewards: {str(int(round(sumClaim/confirmed)))} "
-      f"| average percentage: {str(round(sumPercentage/confirmed))}")
+print(f"total rewards: {str(sumRew)} | average rewards: {str(int(round(sumRew/confirmed)))}")
 
 print("\nwith love by @cyberomanov.")
